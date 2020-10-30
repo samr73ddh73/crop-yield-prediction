@@ -28,16 +28,12 @@ class App extends Component {
   async componentDidMount() {
     const manager = await factory.methods.manager().call();
     const accounts = await web3.eth.getAccounts();
-    let moneyLeft = localStorage.getItem(accounts[0]);
-    if(!moneyLeft) {
-      moneyLeft = 1000;
-      localStorage.setItem(accounts[0], moneyLeft);
-    }
+    let balance = await web3.eth.getBalance(manager);
+    let moneyLeft = balance;
     // this.setState(moneyLeft);
     // console.log(factory.options.address);
     // const balance = await web3.eth.getBalance(factory.options.address);
     // const balance = await web3.eth.getBalance(accounts[0]);
-    const balance = await web3.eth.getBalance(manager);
     // console.log(balance);
     const message = accounts;
     this.setState({ manager, message, balance, moneyLeft });

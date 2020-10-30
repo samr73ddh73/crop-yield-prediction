@@ -17,7 +17,7 @@ class ViewItem extends Component {
   
       const val = await factory.methods._viewItem(this.state.code).call({from: accounts[0]});
       console.log(val);
-      this.setState({ message: `Transaction successful and amount is ${val && val.itemcount}` });
+      this.setState({ message: `Transaction successful and amount is ${val}` });
     };
     render() {
       return(
