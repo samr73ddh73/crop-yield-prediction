@@ -53,7 +53,8 @@ class SendMoney extends Component {
           <div className="inB">
             <input
               placeholder="Send money to"
-              value={this.props.to} readOnly
+              value={this.state.receiver}
+              onChange={event => this.setState({ receiver: event.target.value })}
             />
           </div>
           <br></br>
