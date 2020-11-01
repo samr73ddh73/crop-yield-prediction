@@ -3,9 +3,11 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 import numpy as np
 import os
+import random
 
 def predict(crop,rf,tm):
-	# if(rf==0): return 0
+	if(rf==0): rf=random.randint(1, 10)
+	print("rainfall {}".format(rf))
 	# if(tm==0): return 0
 	features = pd.read_csv(os.getcwd()+'/prediction/crop_data/'+crop+'.csv')
 	features = pd.get_dummies(features)
